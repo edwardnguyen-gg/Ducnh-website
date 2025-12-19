@@ -15,14 +15,14 @@
   /* Tertiary - Amber/Gold for accents */
   --md-sys-color-tertiary: #ffc107;
   --md-sys-color-on-tertiary: #000000;
-  
+
   /* Background & Surface */
   --md-sys-color-background: #fdfbff;
-  --md-sys-color-on-background: #1a1b1e;
+  --md-sys-color-on-background: #0d2854;
   --md-sys-color-surface: #fdfbff;
-  --md-sys-color-on-surface: #1a1b1e;
+  --md-sys-color-on-surface: #0d2854;
   --md-sys-color-surface-variant: #e1e2ec;
-  --md-sys-color-on-surface-variant: #44474f;
+  --md-sys-color-on-surface-variant: #404c6d;
 
   /* Error */
   --md-sys-color-error: #ba1a1a;
@@ -100,17 +100,37 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-family-heading);
   font-weight: 500;
   margin-bottom: var(--spacing-sm);
   color: var(--md-sys-color-on-surface);
 }
 
-h1 { font-size: 2.5rem; line-height: 1.2; }
-h2 { font-size: 2rem; line-height: 1.25; }
-h3 { font-size: 1.75rem; line-height: 1.3; }
-h4 { font-size: 1.5rem; line-height: 1.35; }
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: 1.75rem;
+  line-height: 1.3;
+}
+
+h4 {
+  font-size: 1.5rem;
+  line-height: 1.35;
+}
 
 a {
   color: inherit;
@@ -177,8 +197,15 @@ button {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in {

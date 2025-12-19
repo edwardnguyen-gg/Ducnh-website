@@ -2,6 +2,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import styles from './Header.module.css';
@@ -53,7 +54,7 @@ const Header = () => {
                             }}
                             title="Tiếng Việt"
                         >
-                            <img src="/images/flags/vn.svg" alt="Vietnam Flag" width={24} height={16} style={{ borderRadius: '2px', objectFit: 'cover' }} />
+                            <Image src="/images/flags/vn.svg" alt="Vietnam Flag" width={24} height={16} style={{ borderRadius: '2px', objectFit: 'cover' }} />
                         </button>
                         <button
                             onClick={() => switchLanguage('en')}
@@ -66,7 +67,7 @@ const Header = () => {
                             }}
                             title="English"
                         >
-                            <img src="/images/flags/uk.svg" alt="UK Flag" width={24} height={16} style={{ borderRadius: '2px', objectFit: 'cover' }} />
+                            <Image src="/images/flags/uk.svg" alt="UK Flag" width={24} height={16} style={{ borderRadius: '2px', objectFit: 'cover' }} />
                         </button>
                     </div>
                 </nav>

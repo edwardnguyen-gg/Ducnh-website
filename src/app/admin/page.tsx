@@ -5,7 +5,7 @@ export default async function AdminDashboard() {
     const session = await auth();
 
     // Quick stats (mock)
-    let stats = {
+    const stats = {
         posts: 12,
         courses: 5,
         contact: 3

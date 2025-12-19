@@ -1,0 +1,76 @@
+
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// User Model for Authentication
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  password  String
+  role      String   @default("USER") // ADMIN, EDITOR, USER
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  posts     Post[]
+}
+
+// Blog/News Posts
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+  slug      String   @unique
+  summary   String?
+  content   String
+  published Boolean  @default(false)
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Courses
+model Course {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  schedule    String?
+  location    String? // e.g., Address or "Online"
+  type        String   @default("OFFLINE") // OFFLINE, ONLINE
+  status      String   @default("OPEN") // OPEN, CLOSED, UPCOMING
+  link        String? // Link to LMS or Registration form
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Research Publications & Projects
+model Research {
+  id        String   @id @default(cuid())
+  title     String
+  type      String   // PUBLICATION, PROJECT
+  summary   String?
+  journal   String?  // For publications
+  role      String?  // For projects (e.g., Lead, Member)
+  year      Int
+  link      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Contact Messages
+model Contact {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
